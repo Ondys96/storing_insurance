@@ -7,6 +7,8 @@ public class main {
     private static ArrayList<PojistnaUdalost> seznamUdalosti = new ArrayList<>();
     private static ArrayList<Pojisteny> seznamPojistenych = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in, "Windows-1250");
+
+    // chovani aplikace
     public static void main(String[] args) {
         while (true) {
             zobrazMenu();
@@ -40,6 +42,7 @@ public class main {
         }
     }
 
+    // metoda na zobrazeni menu
     private static void zobrazMenu() {
         System.out.println("1. Přidej pojistnou událost.");
         System.out.println("2. Zobraz pojistnou událost.");
@@ -50,12 +53,13 @@ public class main {
         System.out.print("Vyberte možnost: ");
     }
 
+    // metoda na pridaní pojistné události
     private static void pridatUdalost() {
-        System.out.println("Zadejte typ událost: ");
-        String typ = scanner.nextLine();
+        System.out.println("Zadejte typ události: ");
+        String typ = scanner.nextLine().trim();
 
-        System.out.println("Zadejte popis událost: ");
-        String popis = scanner.nextLine();
+        System.out.println("Zadejte popis události: ");
+        String popis = scanner.nextLine().trim();
 
         System.out.println("Zadejte částku: ");
         double castka = scanner.nextDouble();
@@ -67,6 +71,8 @@ public class main {
         System.out.println("Událost byla úspěšně přídána.");
     }
 
+
+    // metoda na zobrazeni pojistné udalosti
     private static void zobrazUdalosti() {
         System.out.println("Zobraz seznam pojistných událostí: ");
         for (PojistnaUdalost udalost : seznamUdalosti) {
@@ -74,19 +80,20 @@ public class main {
         }
     }
 
+    // metoda na pridani pojisteneho
     private static void pridatPojisteneho() {
         System.out.println("Zadejte jméno pojíštěného: ");
-        String jmeno = scanner.nextLine();
+        String jmeno = scanner.nextLine().trim();
 
         System.out.println("Zadejte příjmení pojíštěného: ");
-        String prijmeni = scanner.nextLine();
+        String prijmeni = scanner.nextLine().trim();
 
         System.out.println("Zadejte věk pojíštěného: ");
         int vek = scanner.nextInt();
         scanner.nextLine();
 
         System.out.println("Zadejte telefonní číslo pojíštěného: ");
-        String telefon = scanner.nextLine();
+        String telefon = scanner.nextLine().trim();
 
         Pojisteny pojistnik = new Pojisteny(jmeno, prijmeni, vek, telefon);
         seznamPojistenych.add(pojistnik);
@@ -94,6 +101,7 @@ public class main {
         System.out.println("Pojištěný byl úspěšně přidán.");
     }
 
+    // metoda na zobrazeni pojisteneho
     private static void zobrazPojistene() {
         System.out.println("Zobraz všechny pojištěné: ");
         for (Pojisteny pojistnik : seznamPojistenych) {
@@ -101,15 +109,16 @@ public class main {
         }
     }
 
+    // metoda na vyhledani pojisteneho
     private static void vyhledatPojisteneho() {
         System.out.println("Zadejte jméno pojištěného pro vyhledání: ");
-        String hledaneJmeno = scanner.nextLine();
+        String hledaneJmeno = scanner.nextLine().trim();
 
         System.out.println("Zadejte příjmení pojíštěného pro vyhledání: ");
-        String hledanePrijmeni = scanner.nextLine();
+        String hledanePrijmeni = scanner.nextLine().trim();
 
         for (Pojisteny pojisteny : seznamPojistenych) {
-            if (pojisteny.equals(hledaneJmeno) && pojisteny.equals(hledanePrijmeni)) {
+            if (pojisteny.jmeno.equalsIgnoreCase(hledaneJmeno) && pojisteny.prijmeni.equalsIgnoreCase(hledanePrijmeni)) {
                 System.out.println("Nalezený pojištěný: " + pojisteny);
                 return;
             }
