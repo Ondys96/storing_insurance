@@ -5,14 +5,14 @@ public class PojistnaUdalost {
     String popis;
     double castka;
 
-    // vytvoreni pojistné udalosti
+    // konstruktor třídy pro vytvoření pojistné události
     public PojistnaUdalost(String typ, String popis, double castka) {
         this.typ = typ;
         this.popis = popis;
         this.castka = castka;
     }
 
-    // vypsaní pojistné udalosti
+    // textový přepis instance
     @Override
     public String toString() {
         return "Typ: " + typ + " " + "Popis: " + popis + " " + "Částka: " + castka;
