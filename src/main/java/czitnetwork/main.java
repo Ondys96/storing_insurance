@@ -8,7 +8,8 @@ public class main {
     private static ArrayList<Pojisteny> seznamPojistenych = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in, "Windows-1250");
 
-    // chovani aplikace
+    // main metoda s hlavním menu který pomocí cyklu while jede nekonečnou smyčku dokud uživatel neukončí pomoci čísla 6.
+    // pokud neukončí smyčka pokračuje dál.
     public static void main(String[] args) {
         while (true) {
             zobrazMenu();
