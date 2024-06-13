@@ -14,7 +14,7 @@ public class Pojisteny {
         this.telefon = telefon;
     }
 
-    // vypsani pojisteneho
+    // textový přepis instance
     @Override
     public String toString() {
         return "Jméno: " + jmeno + " " +  "Příjmení: " + prijmeni + " " +  "Věk: " + vek + " " + "Telefon: " + telefon;
